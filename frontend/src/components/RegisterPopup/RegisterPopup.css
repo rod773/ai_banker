@@ -1,0 +1,79 @@
+.popup label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 1em;
+  font-weight: 500;
+}
+
+.form-fields input {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.popup input[type="range"] {
+  width: 100%;
+  margin-top: 0.5rem;
+  appearance: none;
+  background: #F9B64D;
+  height: 0.4em;
+  border: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  width: 6px;
+  -webkit-appearance: none;
+  height: 12px;
+  background: white;
+  border-radius: 2px;
+}
+
+.popup input[type="range"]::-moz-range-thumb {
+  width: 6px;
+  height: 12px;
+  background: white;
+  border-radius: 2px;
+}
+
+.step-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-group {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary {
+  background-color: #F9B64D;
+  color: black;
+}
+
+.btn-primary:hover {
+  background-color: #fbbf24;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}

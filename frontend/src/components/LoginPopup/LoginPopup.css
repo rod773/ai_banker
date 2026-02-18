@@ -1,0 +1,15 @@
+.popup button {
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #2D333B;
+  color: white;
+}
+
+.popup .error {
+  color: #F87171;
+  font-size: 0.9rem;
+  font-family: sans-serif;
+  height: 2em;
+}
