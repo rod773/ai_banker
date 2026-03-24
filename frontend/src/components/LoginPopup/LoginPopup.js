@@ -3,7 +3,7 @@ import './LoginPopup.css';
 import '../Popup/Popup.css';
 import RegisterPopup from "../RegisterPopup/RegisterPopup";
 
-export default function LoginPopup({ onClose, onSuccess }) {
+export default function LoginPopup({ onClose, onSuccess, onSwitchToWallet }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -62,6 +62,11 @@ export default function LoginPopup({ onClose, onSuccess }) {
                 <button className="btn" onClick={() => setShowRegister(true)}>
                     Register
                 </button>
+                {onSwitchToWallet && (
+                    <button className="btn" onClick={onSwitchToWallet}>
+                        Sign In With Wallet
+                    </button>
+                )}
 
             </div>
         </div>

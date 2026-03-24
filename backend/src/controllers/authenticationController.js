@@ -7,6 +7,8 @@ const {
   successJsonResponse,
 } = require('../utils/jsonResponses/jsonResponses');
 
+const ETHEREUM_ADDRESS_REGEX = /^0x[a-fA-F0-9]{40}$/;
+
 /**
  * Authenticates user and generates JWT token
  * Assumes req.body contains valid username and password strings
@@ -154,7 +156,50 @@ const updatePreferencesController = async (req, res) => {
   }
 };
 
+/**
+ * Issues a single-use nonce for the given Ethereum address.
+ * The client includes this nonce in the EIP-4361 message it asks the user to sign,
+ * binding the signature to this specific sign-in attempt.
+ */
+const walletNonceController = async (req, res) => {
+  try {
+    const { address } = req.query;
 
+    if (!address || !ETHEREUM_ADDRESS_REGEX.test(address)) {
+      return res.json(badRequestJsonResponse('Valid Ethereum address is required'));
+    }
+
+    const nonce = authenticationService.generateNonce(address);
+    return res.json(successJsonResponse({ nonce }));
+  } catch (error) {
+    return res.json(internalErrorJsonResponse(error.message));
+  }
+};
+
+/**
+ * Verifies an EIP-4361 signed message and issues a JWT.
+ */
+const walletVerifyController = async (req, res) => {
+  try {
+    const { address, message, signature } = req.body;
+
+    if (!address || !message || !signature) {
+      return res.json(badRequestJsonResponse('address, message, and signature are required'));
+    }
+
+    const token = await authenticationService.verifyWalletSignature({ address, message, signature });
+    return res.json(successJsonResponse(token));
+  } catch (error) {
+    const authErrors = ['Invalid signature', 'Signature address mismatch', 'Invalid or expired nonce'];
+    if (authErrors.includes(error.message)) {
+      return res.json(unauthorizedJsonResponse(error.message));
+    }
+    if (error.message === 'Invalid Ethereum address' || error.message === 'Invalid message format: missing nonce') {
+      return res.json(badRequestJsonResponse(error.message));
+    }
+    return res.json(internalErrorJsonResponse(error.message));
+  }
+};
 
 module.exports = {
   loginController,
@@ -163,5 +208,7 @@ module.exports = {
   deleteUserController,
   updateEmailController,
   updatePasswordController,
-  updatePreferencesController
+  updatePreferencesController,
+  walletNonceController,
+  walletVerifyController,
 };

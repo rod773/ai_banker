@@ -7,7 +7,9 @@ const {
     deleteUserController,
     updateEmailController,
     updatePasswordController,
-    updatePreferencesController
+    updatePreferencesController,
+    walletNonceController,
+    walletVerifyController,
 } = require('../controllers/authenticationController');
 const verifyToken = require('../middlewares/verifyToken');
 
@@ -18,5 +20,9 @@ router.patch('/updateEmail', verifyToken, updateEmailController);
 router.patch('/updatePassword', verifyToken, updatePasswordController);
 router.patch('/updatePreferences', verifyToken, updatePreferencesController);
 router.delete('/delete', verifyToken, deleteUserController);
+
+// Wallet authentication (Sign-In with Ethereum / EIP-4361)
+router.get('/wallet/nonce', walletNonceController);
+router.post('/wallet/verify', walletVerifyController);
 
 module.exports = router;

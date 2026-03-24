@@ -78,9 +78,17 @@ const userSchema = new mongoose.Schema({
         required: true,
         min: 1,
         max: 10
+    },
+    walletAddress: {
+        type: String,
+        unique: true,
+        sparse: true, // allows multiple documents without this field
+        trim: true,
+        lowercase: true,
+        match: [/^0x[a-fA-F0-9]{40}$/, 'Please enter a valid Ethereum address']
     }
 }, {
-    timestamps: true 
+    timestamps: true
 });
 
 const User = mongoose.model('User', userSchema);

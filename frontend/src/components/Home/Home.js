@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import LoginPopup from "../LoginPopup/LoginPopup";
+import WalletSignIn from "../WalletSignIn/WalletSignIn";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faWallet } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import './Home.css';
@@ -12,6 +13,7 @@ import logoImage from '../../assets/images/Logo.png';
 
 export default function LandingPage() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showWalletSignIn, setShowWalletSignIn] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
@@ -40,11 +42,22 @@ export default function LandingPage() {
     localStorage.setItem('jwt_token', token);
     setIsAuthenticated(true);
     setShowLogin(false);
+    setShowWalletSignIn(false);
   };
 
   const handleLogout = () => {
     localStorage.removeItem('jwt_token');
     setIsAuthenticated(false);
+  };
+
+  const openWalletSignIn = () => {
+    setShowLogin(false);
+    setShowWalletSignIn(true);
+  };
+
+  const openPasswordLogin = () => {
+    setShowWalletSignIn(false);
+    setShowLogin(true);
   };
 
   const goToProfile = () => {
@@ -72,10 +85,16 @@ export default function LandingPage() {
         <nav>
           <ul className="nav-list">
             {!isAuthenticated ? (
-              <li className="nav-item" style={{ cursor: 'pointer' }} onClick={() => setShowLogin(true)}>
-                <FontAwesomeIcon icon={faUserCircle} />
-                Login
-              </li>
+              <>
+                <li className="nav-item" style={{ cursor: 'pointer' }} onClick={openWalletSignIn}>
+                  <FontAwesomeIcon icon={faWallet} />
+                  Sign In With Wallet
+                </li>
+                <li className="nav-item" style={{ cursor: 'pointer' }} onClick={openPasswordLogin}>
+                  <FontAwesomeIcon icon={faUserCircle} />
+                  Login
+                </li>
+              </>
             ) : (
               <>
                 <li className="nav-item" title="Profile" style={{ cursor: 'pointer' }} onClick={goToProfile}>
@@ -94,6 +113,15 @@ export default function LandingPage() {
         <LoginPopup
           onClose={() => setShowLogin(false)}
           onSuccess={handleLoginSuccess}
+          onSwitchToWallet={openWalletSignIn}
+        />
+      )}
+
+      {showWalletSignIn && (
+        <WalletSignIn
+          onClose={() => setShowWalletSignIn(false)}
+          onSuccess={handleLoginSuccess}
+          onSwitchToPassword={openPasswordLogin}
         />
       )}
 
