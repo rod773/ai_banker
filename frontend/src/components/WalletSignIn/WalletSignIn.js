@@ -14,6 +14,7 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
   const { signInWithWallet, isLoading, error, clearError } = useWalletAuth();
   const [activeWallet, setActiveWallet] = useState(null);
   const [wallets, setWallets] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
     let mounted = true;
@@ -22,13 +23,20 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
       const providers = await discoverEip6963Providers();
       if (!mounted) return;
 
-      const list = providers.map((p) => ({
-        key: p.rdns || p.name,
-        provider: p.provider,
-        name: p.name,
-        rdns: p.rdns,
-        icon: p.icon,
-      }));
+      const seen = new Set();
+      const list = [];
+      for (const p of providers) {
+        const key = p.rdns || p.name;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        list.push({
+          key,
+          provider: p.provider,
+          name: p.name,
+          rdns: p.rdns,
+          icon: p.icon,
+        });
+      }
 
       if (list.length === 0) {
         const fallback = getFallbackProvider();
@@ -51,11 +59,21 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
     };
   }, []);
 
+  useEffect(() => {
+    setVisibleCount(0);
+    const timers = wallets.map((_, index) =>
+      setTimeout(() => {
+        setVisibleCount((prev) => Math.max(prev, index + 1));
+      }, index * 90)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, [wallets]);
+
   const handleWalletSelect = async (wallet) => {
     clearError();
     setActiveWallet(wallet.key);
     try {
-      const token = await signInWithWallet(wallet.key);
+      const token = await signInWithWallet(wallet);
       onSuccess(token);
     } catch {
       // Error is stored in the hook's `error` state and rendered in the UI.
