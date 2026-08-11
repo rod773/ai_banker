@@ -105,6 +105,53 @@
   background-color: #FBBF24; 
 }
 
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  max-width: none;
+}
+
+.hero-buttons .btn,
+.hero-buttons .btn-connect-wallet {
+  width: 100%;
+  padding: 16px 24px;
+}
+
+.hero-buttons .btn {
+  background-color: #F9B64D;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero-buttons .btn:hover {
+  background-color: #FBBF24;
+}
+
+.btn-connect-wallet {
+  background-color: #F9B64D;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-connect-wallet:hover {
+  background-color: #FBBF24;
+}
+
 .hero-image img {
   border-radius: 24px;
   box-shadow: 0 10px 15px rgba(0,0,0,0.3);

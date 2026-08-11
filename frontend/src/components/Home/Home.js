@@ -130,7 +130,13 @@ export default function LandingPage() {
           <h2>Your Financial Future Starts Here</h2>
           <p>Upload your crypto wallet address and get a professional, personalized financial report – crafted as if by your own private banker.</p>
           <p>Let's shape a brighter financial future, together. Let us help you make the right decisions with tailored insights you can trust.</p>
-          <button className="btn" onClick={goToReport}>Get Your Report</button>
+          <div className="hero-buttons">
+            <button className="btn" onClick={goToReport}>Get Your Report</button>
+            <button className="btn-connect-wallet" onClick={openWalletSignIn}>
+              <FontAwesomeIcon icon={faWallet} />
+              Connect Wallet
+            </button>
+          </div>
         </div>
         <div className="hero-image">
           <img src={accountingOfficeImage} alt="Private Banker" />
