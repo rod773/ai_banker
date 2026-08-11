@@ -11,6 +11,7 @@ const detectInjectedWallet = () => {
   if (ethereum.isMetaMask) name = 'MetaMask';
   else if (ethereum.isCoinbaseWallet) name = 'Coinbase Wallet';
   else if (ethereum.isBraveWallet) name = 'Brave Wallet';
+  else if (ethereum.isPhantom) name = 'Phantom';
 
   return { provider: ethereum, name };
 };

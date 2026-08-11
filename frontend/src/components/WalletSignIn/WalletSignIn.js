@@ -21,6 +21,22 @@ const WALLET_OPTIONS = [
     detectKey: 'isCoinbaseWallet',
   },
   {
+    type: 'phantom',
+    name: 'Phantom',
+    description: 'Solana & Ethereum wallet',
+    icon: '👻',
+    requiresExtension: true,
+    detectKey: 'isPhantom',
+  },
+  {
+    type: 'brave',
+    name: 'Brave Wallet',
+    description: 'Built-in Brave browser wallet',
+    icon: '🦁',
+    requiresExtension: true,
+    detectKey: 'isBraveWallet',
+  },
+  {
     type: 'injected',
     name: 'Browser Wallet',
     description: 'Any injected EIP-1193 wallet',
@@ -79,7 +95,10 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
       <div className="popup wallet-signin-popup">
         <button className="close-button" onClick={onClose} aria-label="Close">×</button>
 
-        <h2>Sign In With Wallet</h2>
+        <div className="wallet-signin-header">
+          <span className="wallet-signin-emoji" aria-hidden="true">🔐</span>
+          <h2>Sign In With Wallet</h2>
+        </div>
         <p className="wallet-signin-subtitle">
           Connect your crypto wallet to authenticate securely — no password required.
         </p>
@@ -98,7 +117,7 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
         )}
 
         <div className="wallet-options">
-          {WALLET_OPTIONS.map((option) => {
+          {WALLET_OPTIONS.map((option, index) => {
             const available = isWalletAvailable(option);
             const busy = isLoading && activeWallet === option.type;
 
@@ -109,6 +128,7 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
                 onClick={() => handleWalletSelect(option.type)}
                 disabled={isLoading || !available}
                 title={!available ? `${option.name} not detected` : undefined}
+                style={{ animationDelay: `${index * 0.08}s` }}
               >
                 <span className="wallet-option-icon">{option.icon}</span>
                 <span className="wallet-option-info">
@@ -133,6 +153,8 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
           You will be asked to sign a message in your wallet. This does not send any transaction
           or incur gas fees.
         </p>
+
+        <div className="wallet-ambient-glow" aria-hidden="true" />
       </div>
     </div>
   );
