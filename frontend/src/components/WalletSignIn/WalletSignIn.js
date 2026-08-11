@@ -1,84 +1,61 @@
 import React, { useState, useEffect } from 'react';
 import useWalletAuth from '../../hooks/useWalletAuth';
+import {
+  discoverEip6963Providers,
+  getFallbackProvider,
+  walletEmoji,
+  walletDescription,
+} from '../../utils/walletDiscovery';
 import '../Popup/Popup.css';
 import './WalletSignIn.css';
-
-const WALLET_OPTIONS = [
-  {
-    type: 'metamask',
-    name: 'MetaMask',
-    description: 'Browser extension wallet',
-    icon: '🦊',
-    requiresExtension: true,
-    detectKey: 'isMetaMask',
-  },
-  {
-    type: 'coinbase',
-    name: 'Coinbase Wallet',
-    description: 'Browser extension or mobile',
-    icon: '🔵',
-    requiresExtension: true,
-    detectKey: 'isCoinbaseWallet',
-  },
-  {
-    type: 'phantom',
-    name: 'Phantom',
-    description: 'Solana & Ethereum wallet',
-    icon: '👻',
-    requiresExtension: true,
-    detectKey: 'isPhantom',
-  },
-  {
-    type: 'brave',
-    name: 'Brave Wallet',
-    description: 'Built-in Brave browser wallet',
-    icon: '🦁',
-    requiresExtension: true,
-    detectKey: 'isBraveWallet',
-  },
-  {
-    type: 'injected',
-    name: 'Browser Wallet',
-    description: 'Any injected EIP-1193 wallet',
-    icon: '🌐',
-    requiresExtension: false,
-    detectKey: null,
-  },
-];
-
-/**
- * Reads window.ethereum and returns the set of boolean flag keys that are true
- * (e.g. 'isMetaMask', 'isCoinbaseWallet'). Used to determine which wallet
- * options are available without relying on user-agent sniffing.
- */
-const getDetectedKeys = () => {
-  const eth = window.ethereum;
-  if (!eth) return new Set();
-  return new Set(Object.keys(eth).filter((k) => eth[k] === true));
-};
 
 
 export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword }) {
   const { signInWithWallet, isLoading, error, clearError } = useWalletAuth();
   const [activeWallet, setActiveWallet] = useState(null);
-  const [detectedKeys, setDetectedKeys] = useState(new Set());
+  const [wallets, setWallets] = useState([]);
 
   useEffect(() => {
-    setDetectedKeys(getDetectedKeys());
+    let mounted = true;
+
+    (async () => {
+      const providers = await discoverEip6963Providers();
+      if (!mounted) return;
+
+      const list = providers.map((p) => ({
+        key: p.rdns || p.name,
+        provider: p.provider,
+        name: p.name,
+        rdns: p.rdns,
+        icon: p.icon,
+      }));
+
+      if (list.length === 0) {
+        const fallback = getFallbackProvider();
+        if (fallback) {
+          list.push({
+            key: fallback.rdns || fallback.name,
+            provider: fallback.provider,
+            name: fallback.name,
+            rdns: fallback.rdns,
+            icon: fallback.icon,
+          });
+        }
+      }
+
+      setWallets(list);
+    })();
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
-  const isWalletAvailable = (option) => {
-    if (!window.ethereum) return false;
-    if (!option.requiresExtension) return true;
-    if (!option.detectKey) return true;
-    return detectedKeys.has(option.detectKey);
-  };
-
-  const handleWalletSelect = async (walletType) => {
+  const handleWalletSelect = async (wallet) => {
     clearError();
-    setActiveWallet(walletType);
+    setActiveWallet(wallet.key);
     try {
-      const token = await signInWithWallet();
+      const token = await signInWithWallet(wallet.key);
       onSuccess(token);
     } catch {
       // Error is stored in the hook's `error` state and rendered in the UI.
@@ -88,7 +65,7 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
     }
   };
 
-  const anyWalletDetected = !!window.ethereum;
+  const anyWalletDetected = wallets.length > 0;
 
   return (
     <div className="popup-overlay">
@@ -117,24 +94,28 @@ export default function WalletSignIn({ onClose, onSuccess, onSwitchToPassword })
         )}
 
         <div className="wallet-options">
-          {WALLET_OPTIONS.map((option, index) => {
-            const available = isWalletAvailable(option);
-            const busy = isLoading && activeWallet === option.type;
+          {wallets.map((wallet, index) => {
+            const busy = isLoading && activeWallet === wallet.key;
 
             return (
               <button
-                key={option.type}
+                key={wallet.key}
                 className={`wallet-option-btn${busy ? ' loading' : ''}`}
-                onClick={() => handleWalletSelect(option.type)}
-                disabled={isLoading || !available}
-                title={!available ? `${option.name} not detected` : undefined}
+                onClick={() => handleWalletSelect(wallet)}
+                disabled={isLoading}
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
-                <span className="wallet-option-icon">{option.icon}</span>
+                <span className="wallet-option-icon">
+                  {wallet.icon ? (
+                    <img src={wallet.icon} alt={wallet.name} />
+                  ) : (
+                    walletEmoji(wallet.rdns, wallet.name)
+                  )}
+                </span>
                 <span className="wallet-option-info">
-                  <span className="wallet-option-name">{option.name}</span>
+                  <span className="wallet-option-name">{wallet.name}</span>
                   <span className="wallet-option-desc">
-                    {available ? option.description : 'Not detected — install extension'}
+                    {walletDescription(wallet.rdns)}
                   </span>
                 </span>
                 {busy && <span className="spinner" aria-hidden="true" />}

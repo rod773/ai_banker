@@ -116,6 +116,14 @@
   flex-shrink: 0;
   font-size: 1.5rem;
   border: 1px solid #4B5563;
+  overflow: hidden;
+}
+
+.wallet-option-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .wallet-option-info {

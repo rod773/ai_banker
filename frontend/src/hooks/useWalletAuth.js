@@ -3,19 +3,6 @@ import { useState, useCallback } from 'react';
 
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
-const detectInjectedWallet = () => {
-  const { ethereum } = window;
-  if (!ethereum) return null;
-
-  let name = 'Browser Wallet';
-  if (ethereum.isMetaMask) name = 'MetaMask';
-  else if (ethereum.isCoinbaseWallet) name = 'Coinbase Wallet';
-  else if (ethereum.isBraveWallet) name = 'Brave Wallet';
-  else if (ethereum.isPhantom) name = 'Phantom';
-
-  return { provider: ethereum, name };
-};
-
 /**
  * Builds a Sign-In with Ethereum message following the EIP-4361 plain-text format. */
 const buildSiweMessage = (address, nonce) => {
@@ -44,17 +31,16 @@ const useWalletAuth = () => {
   const clearError = useCallback(() => setError(null), []);
 
   /**Executes the full wallet sign-in pipeline and returns the JWT on success.*/
-  const signInWithWallet = useCallback(async () => {
+  const signInWithWallet = useCallback(async (wallet) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // Step 1 — detect injected wallet provider
-      const detected = detectInjectedWallet();
-      if (!detected) {
-        throw new Error('No wallet extension detected. Please install MetaMask or another browser wallet.');
+      // Step 1 — use the provider discovered by the component (EIP-6963)
+      const provider = wallet?.provider;
+      if (!provider) {
+        throw new Error('No wallet extension detected. Please install a wallet and refresh the page.');
       }
-      const { provider } = detected;
 
       // Step 2 — request account access (prompts the user in the wallet UI)
       let accounts;
