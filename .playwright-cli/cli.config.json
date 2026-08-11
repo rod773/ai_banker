@@ -1,0 +1,13 @@
+{
+  "browser": {
+    "browserName": "chromium",
+    "launchOptions": {
+      "executablePath": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+      "headless": false,
+      "args": [
+        "--disable-extensions-except=C:\\Users\\rod\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Default\\Extensions\\nkbihfbeogaeaoehlefnkodbefgpgknn\\13.42.0.0_0",
+        "--load-extension=C:\\Users\\rod\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data\\Default\\Extensions\\nkbihfbeogaeaoehlefnkodbefgpgknn\\13.42.0.0_0"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[     347ms] [WARNING] MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[     348ms] [WARNING] MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 end listeners added. Use emitter.setMaxListeners() to increase limit @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[     397ms] [WARNING] ObjectMultiplex - orphaned data for stream "app-init-liveness" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[     398ms] [WARNING] ObjectMultiplex - orphaned data for stream "app-init-liveness" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[     399ms] [WARNING] ObjectMultiplex - orphaned data for stream "background-liveness" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[     400ms] [WARNING] ObjectMultiplex - orphaned data for stream "background-liveness" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[     488ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ http://localhost:3000/static/js/bundle.js:29593
