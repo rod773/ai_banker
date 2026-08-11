@@ -1,0 +1,33 @@
+[    1761ms] [LOG] Snow detected a new realm creation attempt in MetaMask. Performing scuttling on new realm. Window @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:16
+[    1772ms] [LOG] Snow detected a new realm creation attempt in MetaMask. Performing scuttling on new realm. Window @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:16
+[    2557ms] [WARNING] ObjectMultiplex - malformed chunk without name "[object Object]" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:16
+[    2619ms] [WARNING] A preload for 'chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/_locales/en/messages.json' is found, but is not used because it is a cross-world extension resource mismatch. @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:8
+[    3328ms] [LOG] Snow detected a new realm creation attempt in MetaMask. Performing scuttling on new realm. Window @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:16
+[    3595ms] [WARNING] ObjectMultiplex - orphaned data for stream "app-init-liveness" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[    3595ms] [WARNING] ObjectMultiplex - orphaned data for stream "background-liveness" @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/scripts/contentscript.js:14082
+[    3603ms] [WARNING] Removing intrinsics.Promise.try @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3603ms] [WARNING] Removing intrinsics.Uint8Array.fromBase64 @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3603ms] [WARNING] Removing intrinsics.Uint8Array.fromHex @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3603ms] [WARNING] Removing intrinsics.Iterator.concat @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3605ms] [WARNING] Removing intrinsics.%InitialMath%.f16round @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3605ms] [WARNING] Removing intrinsics.%InitialMath%.sumPrecise @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3605ms] [WARNING] Removing intrinsics.%SharedMath%.f16round @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3605ms] [WARNING] Removing intrinsics.%SharedMath%.sumPrecise @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3605ms] [WARNING] Removing intrinsics.%AsyncIteratorPrototype%.@@asyncDispose @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3605ms] [WARNING] Removing intrinsics.%IteratorPrototype%.@@dispose @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%DataViewPrototype%.getFloat16 @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%DataViewPrototype%.setFloat16 @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsert @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%MapPrototype%.getOrInsertComputed @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%Uint8ArrayPrototype%.toBase64 @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%Uint8ArrayPrototype%.setFromBase64 @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%Uint8ArrayPrototype%.toHex @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%Uint8ArrayPrototype%.setFromHex @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsert @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%WeakMapPrototype%.getOrInsertComputed @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3606ms] [WARNING] Removing intrinsics.%DatePrototype%.toTemporalInstant @ https://metamask.github.io/phishing-warning/v5.1.0/lockdown-install.js:0
+[    3638ms] [LOG] Service worker registered! @ https://metamask.github.io/phishing-warning/v5.1.0/bundle.js:13
+[    3868ms] [WARNING] Rive source file or data buffer required @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:16
+[    4944ms] [WARNING] Rive source file or data buffer required @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/bootstrap.8678fef1a32faa0607bf.js:16
+[    7983ms] [WARNING] The resource chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/_locales/en/messages.json was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#/onboarding/welcome:0
+[   15927ms] [WARNING] The resource chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/_locales/en/messages.json was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html#/onboarding/welcome?login=existing:0

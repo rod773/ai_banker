@@ -1,0 +1,83 @@
+- generic [ref=e5]:
+  - combobox [ref=e9] [cursor=pointer]:
+    - option "አማርኛ"
+    - option "العربية"
+    - option "български"
+    - option "বাংলা"
+    - option "Català"
+    - option "Čeština"
+    - option "Dansk"
+    - option "Deutsch"
+    - option "ελληνικά"
+    - option "English"
+    - option "Español (Latinoamérica)" [selected]
+    - option "Estonian"
+    - option "فارسی"
+    - option "Suomi"
+    - option "Français"
+    - option "Gaeilge"
+    - option "ગુજરાત"
+    - option "עברית"
+    - option "मानक हिन्दी"
+    - option "हिन्दी"
+    - option "Hrvatski"
+    - option "Kreyòl ayisyen"
+    - option "Magyar"
+    - option "Bahasa Indonesia"
+    - option "Italiano"
+    - option "日本語"
+    - option "ಕನ್ನಡ"
+    - option "한국어"
+    - option "Lietuviškai"
+    - option "Latvian"
+    - option "മലയാളം"
+    - option "मराठी"
+    - option "Malay"
+    - option "Nederlands"
+    - option "Norwegian"
+    - option "Polskie"
+    - option "Português"
+    - option "Português (Brazillian)"
+    - option "Português (European)"
+    - option "Limba română"
+    - option "Русский"
+    - option "Slovenčina"
+    - option "Slovenščina"
+    - option "српски"
+    - option "Svenska"
+    - option "Swahili"
+    - option "தமிழ்"
+    - option "తెలుగు"
+    - option "ไทย"
+    - option "Filipino"
+    - option "Türkçe"
+    - option "Українська мова"
+    - option "Tiếng Việt"
+    - option "中文(简体)"
+    - option "中文(繁體)"
+  - generic [ref=e117]:
+    - button "Inicia sesión con Google" [ref=e118] [cursor=pointer]:
+      - generic [ref=e121]: Inicia sesión con Google
+    - button "Inicia sesión con Apple" [ref=e122] [cursor=pointer]:
+      - generic [ref=e123]:
+        - img [ref=e125]
+        - generic [ref=e127]: Inicia sesión con Apple
+    - button "Inicia sesión con Telegram" [ref=e128] [cursor=pointer]:
+      - generic [ref=e129]:
+        - img [ref=e131]
+        - generic [ref=e133]: Inicia sesión con Telegram
+    - separator [ref=e134]:
+      - paragraph [ref=e135]: O
+    - button "Importar con la frase secreta de recuperación" [ref=e136] [cursor=pointer]:
+      - generic [ref=e137]: Importar con la frase secreta de recuperación
+    - paragraph [ref=e138]:
+      - generic [ref=e139]:
+        - text: Al continuar, acepto la
+        - link "Términos de uso (se abre en una nueva pestaña)" [ref=e140] [cursor=pointer]:
+          - /url: https://consensys.io/terms-of-use
+          - text: Términos de uso
+        - text: y los
+        - link "Aviso de privacidad (se abre en una nueva pestaña)" [ref=e141] [cursor=pointer]:
+          - /url: https://consensys.io/privacy-notice
+          - text: Aviso de privacidad
+        - text: de MetaMask

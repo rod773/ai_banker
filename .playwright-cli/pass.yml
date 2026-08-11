@@ -1,0 +1,92 @@
+- generic [ref=e5]:
+  - generic [ref=e7]:
+    - button [ref=e142] [cursor=pointer]:
+      - img [ref=e143]
+    - combobox [ref=e9] [cursor=pointer]:
+      - option "አማርኛ"
+      - option "العربية"
+      - option "български"
+      - option "বাংলা"
+      - option "Català"
+      - option "Čeština"
+      - option "Dansk"
+      - option "Deutsch"
+      - option "ελληνικά"
+      - option "English"
+      - option "Español (Latinoamérica)" [selected]
+      - option "Estonian"
+      - option "فارسی"
+      - option "Suomi"
+      - option "Français"
+      - option "Gaeilge"
+      - option "ગુજરાત"
+      - option "עברית"
+      - option "मानक हिन्दी"
+      - option "हिन्दी"
+      - option "Hrvatski"
+      - option "Kreyòl ayisyen"
+      - option "Magyar"
+      - option "Bahasa Indonesia"
+      - option "Italiano"
+      - option "日本語"
+      - option "ಕನ್ನಡ"
+      - option "한국어"
+      - option "Lietuviškai"
+      - option "Latvian"
+      - option "മലയാളം"
+      - option "मराठी"
+      - option "Malay"
+      - option "Nederlands"
+      - option "Norwegian"
+      - option "Polskie"
+      - option "Português"
+      - option "Português (Brazillian)"
+      - option "Português (European)"
+      - option "Limba română"
+      - option "Русский"
+      - option "Slovenčina"
+      - option "Slovenščina"
+      - option "српски"
+      - option "Svenska"
+      - option "Swahili"
+      - option "தமிழ்"
+      - option "తెలుగు"
+      - option "ไทย"
+      - option "Filipino"
+      - option "Türkçe"
+      - option "Українська мова"
+      - option "Tiếng Việt"
+      - option "中文(简体)"
+      - option "中文(繁體)"
+  - generic [ref=e208]:
+    - generic [ref=e209]:
+      - button "Volver" [ref=e211] [cursor=pointer]:
+        - img [ref=e212]
+      - generic [ref=e214]:
+        - heading "Contraseña de MetaMask" [level=2] [ref=e215]
+        - paragraph [ref=e216]: Desbloquea MetaMask solo en este dispositivo.
+      - generic [ref=e217]:
+        - generic [ref=e218]:
+          - generic [ref=e219] [cursor=pointer]: Crear nueva contraseña
+          - generic [ref=e220]:
+            - textbox "Crear nueva contraseña" [ref=e221]: "@Rodri140035760"
+            - button "Mostrar contraseña" [ref=e222] [cursor=pointer]:
+              - img [ref=e223]
+          - paragraph [ref=e225]: Debe tener al menos 8 caracteres
+        - generic [ref=e226]:
+          - generic [ref=e227] [cursor=pointer]: Confirmar contraseña
+          - generic [ref=e228]:
+            - textbox "Confirmar contraseña" [active] [ref=e229]
+            - button "Mostrar contraseña" [ref=e230] [cursor=pointer]:
+              - img [ref=e231]
+      - generic [ref=e234]:
+        - generic [ref=e235]:
+          - checkbox "Si pierdo esta contraseña, MetaMask no podrá restablecerla. Conozca más" [ref=e236] [cursor=pointer]
+          - generic [ref=e237]:
+            - img
+        - generic [ref=e239]:
+          - text: Si pierdo esta contraseña, MetaMask no podrá restablecerla.
+          - link "Conozca más" [ref=e240] [cursor=pointer]:
+            - /url: https://support.metamask.io/configure/wallet/passwords-and-metamask/?utm_source=extension
+    - button "Crear contraseña" [disabled] [ref=e242]:
+      - generic [ref=e243]: Crear contraseña

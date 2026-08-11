@@ -1,0 +1,82 @@
+- generic [ref=e5]:
+  - generic [ref=e7]:
+    - button [ref=e142] [cursor=pointer]:
+      - img [ref=e143]
+    - combobox [ref=e9] [cursor=pointer]:
+      - option "አማርኛ"
+      - option "العربية"
+      - option "български"
+      - option "বাংলা"
+      - option "Català"
+      - option "Čeština"
+      - option "Dansk"
+      - option "Deutsch"
+      - option "ελληνικά"
+      - option "English"
+      - option "Español (Latinoamérica)" [selected]
+      - option "Estonian"
+      - option "فارسی"
+      - option "Suomi"
+      - option "Français"
+      - option "Gaeilge"
+      - option "ગુજરાત"
+      - option "עברית"
+      - option "मानक हिन्दी"
+      - option "हिन्दी"
+      - option "Hrvatski"
+      - option "Kreyòl ayisyen"
+      - option "Magyar"
+      - option "Bahasa Indonesia"
+      - option "Italiano"
+      - option "日本語"
+      - option "ಕನ್ನಡ"
+      - option "한국어"
+      - option "Lietuviškai"
+      - option "Latvian"
+      - option "മലയാളം"
+      - option "मराठी"
+      - option "Malay"
+      - option "Nederlands"
+      - option "Norwegian"
+      - option "Polskie"
+      - option "Português"
+      - option "Português (Brazillian)"
+      - option "Português (European)"
+      - option "Limba română"
+      - option "Русский"
+      - option "Slovenčina"
+      - option "Slovenščina"
+      - option "српски"
+      - option "Svenska"
+      - option "Swahili"
+      - option "தமிழ்"
+      - option "తెలుగు"
+      - option "ไทย"
+      - option "Filipino"
+      - option "Türkçe"
+      - option "Українська мова"
+      - option "Tiếng Việt"
+      - option "中文(简体)"
+      - option "中文(繁體)"
+  - generic [ref=e263]:
+    - heading "Ayuda a mejorar MetaMask" [level=2] [ref=e264]
+    - img "User control" [ref=e266]
+    - paragraph [ref=e267]: Nos gustaría solicitar estos permisos. Puedes optar por no participar o eliminar tus datos de uso en cualquier momento.
+    - button "Recopilar datos básicos de uso Recopilaremos datos básicos de uso del producto. Podríamos asociar esta información con datos en cadena." [ref=e268] [cursor=pointer]:
+      - generic [ref=e269]:
+        - generic [ref=e270]:
+          - checkbox "Recopilar datos básicos de uso" [checked] [ref=e271]
+          - generic [ref=e272]:
+            - img
+        - paragraph [ref=e274]: Recopilar datos básicos de uso
+      - paragraph [ref=e275]: Recopilaremos datos básicos de uso del producto. Podríamos asociar esta información con datos en cadena.
+    - button "Actualizaciones de productos Utilizaremos estos datos para saber cómo interactúa con nuestras comunicaciones de marketing. Es posible que compartamos noticias relevantes (como características del producto)." [ref=e276] [cursor=pointer]:
+      - generic [ref=e277]:
+        - generic [ref=e278]:
+          - checkbox "Actualizaciones de productos" [ref=e279]
+          - generic [ref=e280]:
+            - img
+        - paragraph [ref=e282]: Actualizaciones de productos
+      - paragraph [ref=e283]: Utilizaremos estos datos para saber cómo interactúa con nuestras comunicaciones de marketing. Es posible que compartamos noticias relevantes (como características del producto).
+    - button "Continuar" [ref=e285] [cursor=pointer]:
+      - generic [ref=e286]: Continuar

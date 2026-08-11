@@ -1,0 +1,38 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - img "My Banker"
+    - navigation [ref=e5]:
+      - list [ref=e6]:
+        - listitem [ref=e7] [cursor=pointer]:
+          - img [ref=e8]
+          - text: Sign In With Wallet
+        - listitem [ref=e10] [cursor=pointer]:
+          - img [ref=e11]
+          - text: Login
+  - generic [ref=e13]:
+    - generic [ref=e14]:
+      - heading "Your Financial Future Starts Here" [level=2] [ref=e15]
+      - paragraph [ref=e16]: Upload your crypto wallet address and get a professional, personalized financial report – crafted as if by your own private banker.
+      - paragraph [ref=e17]: Let's shape a brighter financial future, together. Let us help you make the right decisions with tailored insights you can trust.
+      - generic [ref=e18]:
+        - button "Get Your Report" [ref=e19] [cursor=pointer]
+        - button "Connect Wallet" [ref=e20] [cursor=pointer]:
+          - img [ref=e21]
+          - text: Connect Wallet
+    - generic:
+      - img "Private Banker"
+  - generic [ref=e23]:
+    - generic [ref=e24]:
+      - img "NYC Skyline" [ref=e25]
+      - generic [ref=e26]:
+        - heading "Professional Excellence" [level=3] [ref=e27]
+        - paragraph [ref=e28]: With decades of experience in traditional finance and blockchain technology, we bring Wall Street expertise to your crypto investments. Our analysis combines time-tested financial principles with cutting-edge blockchain analytics.
+    - generic [ref=e29]:
+      - img "Handshake" [ref=e30]
+      - generic [ref=e31]:
+        - heading "Trust & Reliability" [level=3] [ref=e32]
+        - paragraph [ref=e33]: We believe in building lasting relationships through transparency and reliability. Our automated analysis provides the same level of insight you'd expect from a private banking relationship, available 24/7.
+  - generic [ref=e34]:
+    - heading "One Simple Step. Endless Financial Clarity." [level=3] [ref=e35]
+    - paragraph [ref=e36]: Banker Expert is the easiest way to understand your crypto portfolio. Whether you're managing assets or exploring investments, our report gives you the insights you need.
+  - contentinfo [ref=e37]: © 2026 Banker Expert. All rights reserved.

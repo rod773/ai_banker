@@ -1,0 +1,9 @@
+- generic [ref=e5]:
+  - button [ref=e142] [cursor=pointer]:
+    - img [ref=e143]
+  - generic [ref=e287]:
+    - paragraph [ref=e288]: ¡Tu billetera está lista!
+    - button "Abrir billetera" [ref=e290] [cursor=pointer]:
+      - generic [ref=e291]: Abrir billetera
+    - button "Gestionar la configuración por defecto" [ref=e293] [cursor=pointer]:
+      - generic [ref=e294]: Gestionar la configuración por defecto
